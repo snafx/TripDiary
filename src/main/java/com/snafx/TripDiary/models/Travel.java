@@ -22,6 +22,10 @@ public class Travel {
     @JoinColumn(name = "users_id")
     private User userTravel;
 
+    @Size(min = 1, max = 300)
+    @Column(nullable = false)
+    private String tripTitle;
+
     private String country;
 
     @Column(name = "activity_type")
@@ -55,9 +59,11 @@ public class Travel {
     @Column
     private LocalDate dateAdded;
 
-    public Travel(User userTravel, String country, Activity activity,
-                  String description, String description2, String description3, String photo, String photo2, String photo3, LocalDate dateAdded) {
+    public Travel(User userTravel, String tripTitle, String country, Activity activity,
+                  String description, String description2, String description3,
+                  String photo, String photo2, String photo3, LocalDate dateAdded) {
         this.userTravel = userTravel;
+        this.tripTitle = tripTitle;
         this.country = country;
         this.activity = activity;
         this.description = description;
@@ -66,6 +72,6 @@ public class Travel {
         this.photo = photo;
         this.photo2 = photo2;
         this.photo3 = photo3;
-        this.dateAdded = LocalDate.now();
+        this.dateAdded = dateAdded;
     }
 }
