@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TRIP DIARY - HOME</title>
+    <object th:include="/fragments/head :: head" th:remove="tag"/>
+</head>
+
+<body>
+
+<!--header section-->
+    <header class="site-header container animated fadeInDown">
+        <div class="header-wrapper">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="site-branding">
+                        <a href="index.html" th:href="@{'/home'}"><img src="img/logo.png" th:src="@{/img/logo.png}" alt="Brand Logo">
+                        </a>
+                    </div>
+                </div>
+                <a href="#" class="toggle-nav hidden-md hidden-lg">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <div class="col-md-8">
+                    <nav id="nav" class="main-navigation hidden-xs hidden-sm">
+                        <ul class="main-menu">
+                            <li><a class="active homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
+                            <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips Diary</a></li>
+                            <li><a class="newplacebutton" href="add-new-place.html" th:href="@{'/add-new-trip'}">Add New Place</a></li>
+                            <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
+                            <li><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                        </ul>
+                    </nav>
+                    <nav class="main-navigation menu-responsive hidden-md hidden-lg">
+                        <ul class="main-menu">
+                            <li><a class="active homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
+                            <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips Diary</a></li>
+                            <li><a class="newplacebutton" href="add-new-place.html" th:href="@{'/add-new-trip'}">Add New Place</a></li>
+                            <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
+                            <li><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-8">
+                    <div class="nav-arrow">
+                        <img src="img/axe.png" alt="arrow">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<div id="menu-container">
+
+    <div class="homepage home-section container">
+        <div class="our-story">
+            <div class="story-bg animated fadeIn"></div>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="inner-story animated fadeInRight text-center">
+                        <h2>YOUR TRAVEL DIARY</h2>
+                        <p>Cras placerat, est ac sollicitudin laoreet, ante enim egestas lorem, vel auctor nibh massa
+                            sit amet lacus. Cras mollis tellus id sollicitudin vulputate. Vestibulum ante ipsum primis
+                            in faucibus orci luctus et ultrices posuere cubilia Curae; Nullam gravida arcu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="our-offers">
+            <div class="offer-bg animated fadeIn"></div>
+            <div class="offer-header">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <div class="offer-title animated fadeInDown">
+                            <h2>CHOOSE ACTION</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offer-holder">
+                    <div class="col-md-6">
+                        <div class="offer-item offer-1 animated fadeInLeft">
+                            <figure>
+                                <img src="img/ind2.jpg" alt="">
+                            </figure>
+                            <div class="offer-content text-center">
+                                <h4>VISITED PLACES</h4>
+                                <a href="travel.html" th:href="@{'/tripsDiaryList'}" class="message-button">EXPLORE</a>
+                                <p>Sed sagittis nunc vel tellus ultricies auctor. Class aptent taciti sociosqu ad litora
+                                    torquent per conubia , per inceptos himenaeos. Integer eleifend tellu.</p>
+                                <span class="offer-left"><i></i></span>
+                                <span class="offer-right"><i></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="offer-item offer-2 animated fadeInRight">
+                            <figure>
+                                <img src="img/ind1.jpg" alt="">
+                            </figure>
+                            <div class="offer-content text-center">
+                                <h4>BEEN SOMEWHERE?</h4>
+                                <a href="add-new-place.html" th:href="@{'/add-new-trip'}" class="message-button">ADD NEW PLACE</a>
+                                <p>Sed sagittis nunc vel tellus ultricies auctor. Class aptent taciti sociosqu ad litora
+                                    torquent per conubia , per inceptos himenaeos. Integer eleifend tellu.</p>
+                                <span class="offer-left"><i></i></span>
+                                <span class="offer-right"><i></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--footer section-->
+<div th:replace="fragments/footer :: footer">
+    <footer class="site-footer container text-center">
+        <div class="row">
+            <div class="col-md-12 copyright">
+                <p>Copyright &copy; 2017 <a href="#">snafx</a></p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<span class="border-top"></span>
+<span class="border-left"></span>
+<span class="border-right"></span>
+<span class="border-bottom"></span>
+<span class="shape-1"></span>
+<span class="shape-2"></span>
+
+</body>
+
+</html>
