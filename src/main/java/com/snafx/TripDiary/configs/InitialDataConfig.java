@@ -40,18 +40,18 @@ public class InitialDataConfig {
                 "reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, " +
                 "sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
-        Travel travel = new Travel(user, "Amazing hiking trip in Norwegian mountains!", "Norway", Activity.HIKING, description, description, description,
+        Travel travel = new Travel(user, "Amazing hiking in Norwegian mountains!", "Norway", Activity.HIKING, description, description, description,
                 "https://res.cloudinary.com/simpleview/image/upload/c_fill,f_auto,h_702,q_65,w_1200/v1/clients/norway/hiking-trolltunga-hardangerfjord-norway-2-1_353a98f6-1f27-4a0d-953c-f2267f4e4b20.jpg",
                 "https://res.cloudinary.com/simpleview/image/upload/c_fill,f_auto,h_575,q_64,w_1200/v1/clients/norway/camping-kafjord-norway-2-1_3daa4b85-c491-453f-99fc-35d7bd44fb27.jpg",
                 "https://res.cloudinary.com/simpleview/image/upload/c_limit,f_auto,h_1200,q_75,w_1200/v1/clients/norway/hiking_norway_preview_8a8c0b82-dc55-4036-a50c-79424e5a5f31.jpg",
                 LocalDate.now());
 
-        Travel travel2 = new Travel(user2, "Great weekend in Madrid with Real Madrid!", "Spain", Activity.FOOTBALL, description, description, null,
+        Travel travel2 = new Travel(user2, "Great weekend with Real Madrid game!", "Spain", Activity.FOOTBALL, description, description, null,
                 "https://www.corazonblanco.com/media/galeria/44/5/9/4/6/n_real_madrid_fondos-2976495.jpg",
                 "http://as01.epimg.net/en/imagenes/2017/08/23/football/1503469635_888168_1503528235_noticia_normal.jpg",
                 "http://i.dailymail.co.uk/i/pix/2014/08/25/1408996541642_lc_galleryImage_MADRID_SPAIN_AUGUST_25_Cr.JPG",
                 LocalDate.of(2017, 8, 16));
-        Travel travel3 = new Travel(user3, "Amazing snowboarding week in Italian mountains!", "Italy", Activity.SNOWBOARDING, description, null, description,
+        Travel travel3 = new Travel(user3, "Snowboarding week in Italian mountains!", "Italy", Activity.SNOWBOARDING, description, null, description,
                 "https://www.neilson.co.uk/sites/default/files/2016-10/Skiing%20in%20Italy.jpg",
                 "http://i3.mirror.co.uk/incoming/article1529973.ece/ALTERNATES/s615/Cervinia%20ski%20WRITER%20Nick%20Matterhorn",
                 "http://flights.jet2.com/uploadedImages/Shared_Resources/Pages/Flight_Jet2_Com/skiing-snowboarding/resorts/andorra/arinsal/arinsal_01b.gif",

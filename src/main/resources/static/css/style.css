@@ -286,7 +286,7 @@ h2.welcome-title {
     height: 100%;
     top: 0;
     left: 0;
-    background: rgba(78,145,201,0.5);
+    background: rgba(78,145,201,0.6);
     text-align: center;
     opacity: 0;
     -webkit-transition: all 200ms ease-in-out;
@@ -402,6 +402,34 @@ h2.welcome-title {
     animation-delay: 3.6s;
 }
 
+.trip-bg {
+    background: url("../img/bg_18d.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 69%;
+    top: 0;
+    left: 0;
+    -moz-animation-delay: 3.6s;
+    -webkit-animation-delay: 3.6s;
+    animation-delay: 3.6s;
+}
+
+.trip-bg-top {
+    background: url("../img/bg_18c.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 69%;
+    bottom: 0;
+    left: 0;
+    -moz-animation-delay: 2.2s;
+    -webkit-animation-delay: 2.2s;
+    animation-delay: 2.2s;
+}
+
 .offer-title {
     color: #4e91c9;
     padding: 30px;
@@ -463,6 +491,27 @@ span.offer-left {
     top: 0px;
 }
 
+span.offer-left-top {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    width: 30px;
+    height: 30px;
+}
+
+.offer-left-top>i {
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 15px solid transparent;
+    border-left: 15px solid #32353a;
+    border-top: 15px solid #32353a;
+    left: 0px;
+    top: 0px;
+}
+
 span.offer-right {
     position: absolute;
     bottom: -1px;
@@ -484,6 +533,27 @@ span.offer-right {
     top: 0px;
 }
 
+span.offer-right-top {
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 30px;
+    height: 30px;
+}
+
+.offer-right-top>i {
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    line-height: 0;
+    border: 15px solid transparent;
+    border-right: 15px solid #32353a;
+    border-top: 15px solid #32353a;
+    left: 0px;
+    top: 0px;
+}
+
 .offer-1 {
     -moz-animation-delay: 2.1s;
     -webkit-animation-delay: 2.1s;
@@ -494,6 +564,18 @@ span.offer-right {
     -moz-animation-delay: 2.8s;
     -webkit-animation-delay: 2.8s;
     animation-delay: 2.8s;
+}
+
+.trip-1 {
+    -moz-animation-delay: 0.8s;
+    -webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
+}
+
+.trip-2 {
+    -moz-animation-delay: 1.6s;
+    -webkit-animation-delay: 1.6s;
+    animation-delay: 1.6s;
 }
 
 .projects-header {

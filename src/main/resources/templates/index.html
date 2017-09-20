@@ -8,47 +8,52 @@
 <body>
 
 <!--header section-->
-    <header class="site-header container animated fadeInDown">
-        <div class="header-wrapper">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="site-branding">
-                        <a href="index.html" th:href="@{'/home'}"><img src="img/logo.png" th:src="@{/img/logo.png}" alt="Brand Logo">
-                        </a>
-                    </div>
+<header class="site-header container animated fadeInDown">
+    <div class="header-wrapper">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="site-branding">
+                    <a href="index.html" th:href="@{'/home'}"><img src="img/logo.png" th:src="@{/img/logo.png}"
+                                                                   alt="Brand Logo">
+                    </a>
                 </div>
-                <a href="#" class="toggle-nav hidden-md hidden-lg">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <div class="col-md-8">
-                    <nav id="nav" class="main-navigation hidden-xs hidden-sm">
-                        <ul class="main-menu">
-                            <li><a class="active homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
-                            <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips Diary</a></li>
-                            <li><a class="newplacebutton" href="add-new-place.html" th:href="@{'/add-new-trip'}">Add New Place</a></li>
-                            <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
-                            <li><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
-                        </ul>
-                    </nav>
-                    <nav class="main-navigation menu-responsive hidden-md hidden-lg">
-                        <ul class="main-menu">
-                            <li><a class="active homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
-                            <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips Diary</a></li>
-                            <li><a class="newplacebutton" href="add-new-place.html" th:href="@{'/add-new-trip'}">Add New Place</a></li>
-                            <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
-                            <li><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-md-4"></div>
-                <div class="col-md-8">
-                    <div class="nav-arrow">
-                        <img src="img/axe.png" alt="arrow">
-                    </div>
+            </div>
+            <a href="#" class="toggle-nav hidden-md hidden-lg">
+                <i class="fa fa-bars"></i>
+            </a>
+            <div class="col-md-8">
+                <nav id="nav" class="main-navigation hidden-xs hidden-sm">
+                    <ul class="main-menu">
+                        <li><a class="active homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
+                        <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips
+                            Diary</a></li>
+                        <li><a class="newplacebutton" href="add-new-place.html" th:href="@{'/add-new-trip'}">Add New
+                            Place</a></li>
+                        <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
+                        <li><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                    </ul>
+                </nav>
+                <nav class="main-navigation menu-responsive hidden-md hidden-lg">
+                    <ul class="main-menu">
+                        <li><a class="active homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
+                        <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips
+                            Diary</a></li>
+                        <li><a class="newplacebutton" href="add-new-place.html" th:href="@{'/add-new-trip'}">Add New
+                            Place</a></li>
+                        <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
+                        <li><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <div class="nav-arrow">
+                    <img src="img/axe.png" th:src="@{/img/axe.png}" alt="axe">
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
 <div id="menu-container">
 
@@ -101,7 +106,8 @@
                             </figure>
                             <div class="offer-content text-center">
                                 <h4>BEEN SOMEWHERE?</h4>
-                                <a href="add-new-place.html" th:href="@{'/add-new-trip'}" class="message-button">ADD NEW PLACE</a>
+                                <a href="add-new-place.html" th:href="@{'/add-new-trip'}" class="message-button">ADD NEW
+                                    PLACE</a>
                                 <p>Sed sagittis nunc vel tellus ultricies auctor. Class aptent taciti sociosqu ad litora
                                     torquent per conubia , per inceptos himenaeos. Integer eleifend tellu.</p>
                                 <span class="offer-left"><i></i></span>

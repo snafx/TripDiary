@@ -22,7 +22,7 @@ public class Travel {
     @JoinColumn(name = "users_id")
     private User userTravel;
 
-    @Size(min = 1, max = 300)
+    @Size(min = 1, max = 40)
     @Column(nullable = false)
     private String tripTitle;
 

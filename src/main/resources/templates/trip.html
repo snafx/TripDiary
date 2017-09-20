@@ -1,10 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>TRIP DIARY - TRAVEL DETAILS</title>
+    <object th:include="/fragments/head :: head" th:remove="tag"/>
 </head>
+
 <body>
 
+<!--header section-->
+<header class="site-header container animated fadeInDown">
+    <div class="header-wrapper">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="site-branding">
+                    <a href="index.html" th:href="@{'/home'}"><img src="img/logo.png" th:src="@{/img/logo.png}" alt="Brand Logo">
+                    </a>
+                </div>
+            </div>
+            <a href="#" class="toggle-nav hidden-md hidden-lg">
+                <i class="fa fa-bars"></i>
+            </a>
+            <div class="col-md-8">
+                <nav id="nav" class="main-navigation hidden-xs hidden-sm">
+                    <ul class="main-menu">
+                        <li><a class="homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
+                        <li><a class="active tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips Diary</a></li>
+                        <li><a class="newplacebutton" href="add-new-place.html" th:href="@{'/add-new-trip'}">Add New Place</a></li>
+                        <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
+                        <li><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                    </ul>
+                </nav>
+                <nav class="main-navigation menu-responsive hidden-md hidden-lg">
+                    <ul class="main-menu">
+                        <li><a class="homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
+                        <li><a class="active tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips Diary</a></li>
+                        <li><a class="newplacebutton" href="add-new-place.html" th:href="@{'/add-new-trip'}">Add New Place</a></li>
+                        <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
+                        <li><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <div class="nav-arrow">
+                    <img src="img/axe.png" th:src="@{/img/axe.png}" alt="axe">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--trip diary section-->
+<div id="menu-container">
+    <div class="homepage home-section container">
+        <div class="our-story">
+            <div class="trip-bg-top animated fadeIn"></div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="offer-item trip-1 animated rotateInDownLeft">
+                        <figure>
+                            <img src="img/title.png" th:src="@{/img/title.png}"  alt="Trip Diary">
+                        </figure>
+                        <div class="offer-content text-center">
+                            <h2 th:text="${trip.tripTitle}">Amazing hiking in Norwegian mountains!</h2>
+                            <p th:text="${trip.country} + ' ' + ${trip.dateAdded}">Country? When?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="offer-item trip-2 animated rotateInDownRight">
+                        <figure>
+                            <span class="offer-left-top"><i></i></span>
+                            <span class="offer-right-top"><i></i></span>
+                            <img src="" alt="Trip Photo 1" th:src="${trip.photo}">
+                        </figure>
+                        <div class="offer-content text-center">
+                            <p th:text="${trip.description}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="our-offers">
+            <div class="trip-bg animated fadeIn"></div>
+            <div class="row">
+                <div class="offer-holder">
+                    <div class="col-md-6">
+                        <div class="offer-item offer-1 animated rotateInUpLeft">
+                            <figure>
+                                <img src="" alt="Trip Photo 2" th:src="${trip.photo2}">
+                            </figure>
+                            <div class="offer-content text-center">
+                                <p th:text="${trip.description2}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <span class="offer-left"><i></i></span>
+                                <span class="offer-right"><i></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="offer-item offer-2 animated rotateInUpRight">
+                            <figure>
+                                <img src="" alt="Trip Photo 3" th:src="${trip.photo3}">
+                            </figure>
+                            <div class="offer-content text-center">
+                                <p th:text="${trip.description3}">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                                <span class="offer-left"><i></i></span>
+                                <span class="offer-right"><i></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--footer section-->
+<div th:replace="fragments/footer :: footer">
+    <footer class="site-footer container text-center">
+        <div class="row">
+            <div class="col-md-12 copyright">
+                <p>Copyright &copy; 2017 <a href="#">snafx</a></p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<span class="border-top"></span>
+<span class="border-left"></span>
+<span class="border-right"></span>
+<span class="border-bottom"></span>
+<span class="shape-1"></span>
+<span class="shape-2"></span>
+
 </body>
+
 </html>
