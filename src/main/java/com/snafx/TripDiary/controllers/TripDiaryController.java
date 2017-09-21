@@ -1,8 +1,8 @@
 package com.snafx.TripDiary.controllers;
 
-import com.snafx.TripDiary.models.Travel;
-import com.snafx.TripDiary.repositories.TravelRepository;
-import com.snafx.TripDiary.repositories.UserRepository;
+import com.snafx.TripDiary.models.Trip;
+import com.snafx.TripDiary.repositories.JpaTravelRepository;
+import com.snafx.TripDiary.repositories.JpaUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,27 +14,27 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(path = "/")
 public class TripDiaryController {
 
-    private TravelRepository travelRepository;
+    private JpaTravelRepository jpaTravelRepository;
 
-    private UserRepository userRepository;
+    private JpaUserRepository jpaUserRepository;
 
     @Autowired
-    public TripDiaryController(TravelRepository travelRepository, UserRepository userRepository) {
-        this.travelRepository = travelRepository;
-        this.userRepository = userRepository;
+    public TripDiaryController(JpaTravelRepository jpaTravelRepository, JpaUserRepository jpaUserRepository) {
+        this.jpaTravelRepository = jpaTravelRepository;
+        this.jpaUserRepository = jpaUserRepository;
     }
 
     @GetMapping(value = "/tripsDiaryList")
     public String allTripsDiary(Model model) {
-        Iterable<Travel> tripList = travelRepository.findAll();
+        Iterable<Trip> tripList = jpaTravelRepository.findAll();
         model.addAttribute("tripList", tripList);
         return "trips-diary";
     }
 
     @RequestMapping("/tripsDiaryList/trip/{id}")
     public String tripDetails(@PathVariable(name = "id") Long id, Model model) {
-        Travel travel = travelRepository.findOne(id);
-        model.addAttribute("trip", travel);
+        Trip trip = jpaTravelRepository.findOne(id);
+        model.addAttribute("trip", trip);
         return "trip";
     }
 

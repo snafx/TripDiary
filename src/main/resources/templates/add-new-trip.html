@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>TRIP DIARY - ADD NEW TRIP</title>
+    <object th:include="/fragments/head :: head" th:remove="tag"/>
+    <script src="js/bootstrap-datepicker.min.js" th:src="@{/js/bootstrap-datepicker.min.js}"></script>
+    <link rel="stylesheet" href="css/bootstrap-datepicker3.min.css" th:href="@{/css/bootstrap-datepicker3.min.css}"/>
+    <script>
+        $(function () {
+            $("#datepicker").datepicker({
+                format: "dd/mm/yyyy",
+                todayHighlight: true,
+                todayBtn: true,
+                startView: 1,
+                orientation: "bottom auto",
+                startDate: "01-01-1950"
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+<!--header section-->
+<header class="site-header container animated fadeInDown">
+    <div class="header-wrapper">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="site-branding">
+                    <a href="index.html" th:href="@{'/home'}"><img src="img/logo.png" th:src="@{/img/logo.png}"
+                                                                   alt="Brand Logo">
+                    </a>
+                </div>
+            </div>
+            <a href="#" class="toggle-nav hidden-md hidden-lg">
+                <i class="fa fa-bars"></i>
+            </a>
+            <div class="col-md-8">
+                <nav id="nav" class="main-navigation hidden-xs hidden-sm">
+                    <ul class="main-menu">
+                        <li><a class="homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
+                        <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips
+                            Diary</a></li>
+                        <li><a class="active newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add
+                            New Place</a></li>
+                        <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
+                        <li><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                    </ul>
+                </nav>
+                <nav class="main-navigation menu-responsive hidden-md hidden-lg">
+                    <ul class="main-menu">
+                        <li><a class="homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
+                        <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips
+                            Diary</a></li>
+                        <li><a class="active newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add
+                            New Place</a></li>
+                        <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
+                        <li><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <div class="nav-arrow">
+                    <img src="img/axe.png" th:src="@{/img/axe.png}" alt="axe">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div id="menu-container">
+    <div class="homepage home-section container">
+        <div class="add-trip-header text-center">
+            <h2 class="animated fadeInLeft">Add New Place</h2>
+        </div>
+        <form action="#" th:action="@{/check}" th:object="${trip}" method="post">
+            <div class="our-story">
+                <div class="add-trip-bg-top animated fadeIn"></div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="offer-item trip-1 animated rotateInDownLeft">
+                            <div class="contact-form">
+                                <figure>
+                                    <img src="img/title2.png" th:src="@{/img/title2.png}" alt="Trip Diary">
+                                </figure>
+                                <div class="offer-content text-center">
+                                    <input type="text" th:field="*{tripTitle}" placeholder="TRIP TITLE" maxlength="45"/>
+                                    <input type="text" th:field="*{country}" placeholder="WHERE?" maxlength="30"/>
+                                    <input id="datepicker" type="text" name="dateAdded" th:value="*{dateAdded}"
+                                           th:field="*{dateAdded}" path="dateAdded" placeholder="WHEN?"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="offer-item trip-2 animated rotateInDownRight">
+                            <div class="contact-form">
+                                <figure>
+                                    <img src="" alt="Trip Photo 1" th:src="@{/img/1st.png}">
+                                </figure>
+                                <div class="offer-content text-center">
+                                    <input type="text" th:field="*{photo}" placeholder="1st PHOTO LINK"
+                                           maxlength="1000"/>
+                                    <textarea name="description" th:field="*{description}" rows="5" maxlength="700"
+                                              type="text"
+                                              placeholder="1st DESCRIPTION PARAGRAPH"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="our-offers">
+                <div class="add-trip-bg animated fadeIn"></div>
+                <div class="row">
+                    <div class="offer-holder">
+                        <div class="col-md-6">
+                            <div class="offer-item offer-1 animated rotateInUpLeft">
+                                <div class="contact-form">
+                                    <figure>
+                                        <img src="" alt="Trip Photo 2" th:src="@{/img/2nd.png}">
+                                    </figure>
+                                    <div class="offer-content text-center">
+                                        <p><input type="text" th:field="*{photo2}" placeholder="2nd PHOTO LINK"
+                                                  maxlength="1000"/></p>
+                                        <textarea name="description" th:field="*{description2}" rows="5" maxlength="700"
+                                                  type="text"
+                                                  placeholder="2nd DESCRIPTION PARAGRAPH"></textarea>
+                                        <span class="offer-left"><i></i></span>
+                                        <span class="offer-right"><i></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="offer-item offer-2 animated rotateInUpRight">
+                                <div class="contact-form">
+                                    <figure>
+                                        <img src="" alt="Trip Photo 3" th:src="@{/img/3rd.png}">
+                                    </figure>
+                                    <div class="offer-content text-center">
+                                        <p><input type="text" name="photo3" th:field="*{photo3}"
+                                                  placeholder="3rd PHOTO LINK" maxlength="1000"/></p>
+                                        <textarea name="description3" th:field="*{description3}" rows="5"
+                                                  maxlength="700"
+                                                  type="text"
+                                                  placeholder="3rd DESCRIPTION PARAGRAPH"></textarea>
+                                        <span class="offer-left"><i></i></span>
+                                        <span class="offer-right"><i></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="add-trip-header text-center">
+                <div class="contact-form animated fadeInUp">
+                    <fieldset class="col-md-12">
+                        <button type="submit" class="new-trip-button">Add New Trip</button>
+                    </fieldset>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!--footer section-->
+<div th:replace="fragments/footer :: footer">
+    <footer class="site-footer container text-center">
+        <div class="row">
+            <div class="col-md-12 copyright">
+                <p>Copyright &copy; 2017 <a href="#">snafx</a></p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<span class="border-top"></span>
+<span class="border-left"></span>
+<span class="border-right"></span>
+<span class="border-bottom"></span>
+<span class="shape-1"></span>
+<span class="shape-2"></span>
+
+</body>
+
+</html>

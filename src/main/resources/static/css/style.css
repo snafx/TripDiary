@@ -430,6 +430,34 @@ h2.welcome-title {
     animation-delay: 2.2s;
 }
 
+.add-trip-bg {
+    background: url("../img/bg_21b.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 69%;
+    top: 0;
+    left: 0;
+    -moz-animation-delay: 3.6s;
+    -webkit-animation-delay: 3.6s;
+    animation-delay: 3.6s;
+}
+
+.add-trip-bg-top {
+    background: url("../img/bg_21a.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 69%;
+    bottom: 0;
+    left: 0;
+    -moz-animation-delay: 2.2s;
+    -webkit-animation-delay: 2.2s;
+    animation-delay: 2.2s;
+}
+
 .offer-title {
     color: #4e91c9;
     padding: 30px;
@@ -791,9 +819,20 @@ span.solid-line {
     animation-delay: 1.9s;
 }
 
+.add-trip-header h2 {
+    font-size: 36px;
+    font-weight: 100;
+    color: #fff;
+    margin-bottom: 10px;
+    -moz-animation-delay: 0.5s;
+    -webkit-animation-delay: 0.5s;
+    animation-delay: 0.5s;
+}
+
 .contact-header {
     margin-bottom: 100px;
 }
+
 
 .contact-header h2 {
     font-size: 36px;
@@ -890,13 +929,26 @@ span.solid-line {
 
 .message-button {
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 500;
     font-size: 12px;
     background: #4e91c9;
     color: #fff !important;
     padding: 12px 20px;
     display: inline-block;
     margin-bottom: 30px;
+    border: none;
+}
+
+.new-trip-button {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 14px;
+    background: #4e91c9;
+    color: #fff !important;
+    padding: 12px 20px;
+    display: inline-block;
+    margin-bottom: 40px;
+    border: none;
 }
 
 .main-footer {

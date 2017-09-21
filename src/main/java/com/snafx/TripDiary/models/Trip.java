@@ -3,6 +3,7 @@ package com.snafx.TripDiary.models;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
@@ -11,8 +12,8 @@ import java.time.LocalDate;
 @Setter
 @Getter
 @NoArgsConstructor
-@Entity(name = "travels")
-public class Travel {
+@Entity(name = "trips")
+public class Trip {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,28 +21,26 @@ public class Travel {
 
     @ManyToOne
     @JoinColumn(name = "users_id")
-    private User userTravel;
+    private User userTrip;
 
-    @Size(min = 1, max = 40)
+    @Size(min = 1, max = 45)
     @Column(nullable = false)
     private String tripTitle;
 
+    @Column
+    @Size(max=30)
     private String country;
 
-    @Column(name = "activity_type")
-    @Enumerated(value = EnumType.STRING)
-    private Activity activity;
-
     @Column
-    @Size(max = 2000)
+    @Size(max = 700)
     private String description;
 
     @Column
-    @Size(max = 2000)
+    @Size(max = 700)
     private String description2;
 
     @Column
-    @Size(max = 2000)
+    @Size(max = 700)
     private String description3;
 
     @Column
@@ -57,15 +56,29 @@ public class Travel {
     private String photo3;
 
     @Column
+    @DateTimeFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateAdded;
 
-    public Travel(User userTravel, String tripTitle, String country, Activity activity,
-                  String description, String description2, String description3,
-                  String photo, String photo2, String photo3, LocalDate dateAdded) {
-        this.userTravel = userTravel;
+    public Trip(User userTrip, String tripTitle, String country,
+                String description, String description2, String description3,
+                String photo, String photo2, String photo3, LocalDate dateAdded) {
+        this.userTrip = userTrip;
         this.tripTitle = tripTitle;
         this.country = country;
-        this.activity = activity;
+        this.description = description;
+        this.description2 = description2;
+        this.description3 = description3;
+        this.photo = photo;
+        this.photo2 = photo2;
+        this.photo3 = photo3;
+        this.dateAdded = dateAdded;
+    }
+
+    public Trip(String tripTitle, String country,
+                String description, String description2, String description3,
+                String photo, String photo2, String photo3, LocalDate dateAdded) {
+        this.tripTitle = tripTitle;
+        this.country = country;
         this.description = description;
         this.description2 = description2;
         this.description3 = description3;

@@ -45,8 +45,8 @@ public class User {
     @Size(min = 1, max = 30)
     private String location;
 
-    @OneToMany(mappedBy = "userTravel")
-    private List<Travel> travelList;
+    @OneToMany(mappedBy = "userTrip")
+    private List<Trip> tripList;
 
     public User(String username, String password, String email, String firstName, String lastName, String location) {
         this.username = username;
