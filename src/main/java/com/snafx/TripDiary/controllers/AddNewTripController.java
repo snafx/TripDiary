@@ -22,8 +22,7 @@ public class AddNewTripController extends WebMvcConfigurerAdapter{
     private JpaUserRepository jpaUserRepository;
 
     @Autowired
-    public AddNewTripController(JpaTravelRepository jpaTravelRepository,
-                                JpaUserRepository jpaUserRepository) {
+    public AddNewTripController(JpaTravelRepository jpaTravelRepository, JpaUserRepository jpaUserRepository) {
         this.jpaTravelRepository = jpaTravelRepository;
         this.jpaUserRepository = jpaUserRepository;
     }
@@ -39,11 +38,11 @@ public class AddNewTripController extends WebMvcConfigurerAdapter{
             return "add-new-trip";
         }
         jpaTravelRepository.save(trip);
-        return "redirect:/addResult";
+        return "redirect:/result";
     }
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/addResult").setViewName("addResult");
+        registry.addViewController("/result").setViewName("result");
     }
 }

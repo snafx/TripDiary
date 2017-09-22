@@ -1,6 +1,5 @@
 package com.snafx.TripDiary.configs;
 
-import com.snafx.TripDiary.models.Activity;
 import com.snafx.TripDiary.models.Trip;
 import com.snafx.TripDiary.models.User;
 import com.snafx.TripDiary.repositories.JpaTravelRepository;
