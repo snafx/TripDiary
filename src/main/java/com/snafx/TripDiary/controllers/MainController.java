@@ -17,4 +17,14 @@ public class MainController {
     public String home1() {
         return "index";
     }
+
+    @GetMapping(value = "/login")
+    public String logIn() {
+        return "login";
+    }
+
+    @GetMapping(value = "/register")
+    public String registerUser() {
+        return "register";
+    }
 }

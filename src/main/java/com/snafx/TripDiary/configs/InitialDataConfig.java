@@ -1,7 +1,9 @@
 package com.snafx.TripDiary.configs;
 
+import com.snafx.TripDiary.models.Role;
 import com.snafx.TripDiary.models.Trip;
 import com.snafx.TripDiary.models.User;
+import com.snafx.TripDiary.repositories.JpaRoleRepository;
 import com.snafx.TripDiary.repositories.JpaTravelRepository;
 import com.snafx.TripDiary.repositories.JpaUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,22 +19,31 @@ public class InitialDataConfig {
 
     private JpaUserRepository jpaUserRepository;
 
+    private JpaRoleRepository jpaRoleRepository;
+
     @Autowired
-    public InitialDataConfig(JpaTravelRepository jpaTravelRepository, JpaUserRepository jpaUserRepository) {
+    public InitialDataConfig(JpaTravelRepository jpaTravelRepository, JpaUserRepository jpaUserRepository, JpaRoleRepository jpaRoleRepository) {
         this.jpaTravelRepository = jpaTravelRepository;
         this.jpaUserRepository = jpaUserRepository;
+        this.jpaRoleRepository = jpaRoleRepository;
     }
 
     @PostConstruct
     public void init() {
 
-        User user = new User("koko", "koko123", "koko@test.com", "John", "Doe", "California");
-        User user2 = new User("candy666", "candy123", "candy@test.com", "Candice", "Smith", "Berlin");
-        User user3 = new User("BigFranklin", "franklin123", "franklin@test.com", "Franklin", "Big", "Poznan");
+        User user = new User("koko", "koko123","koko123", "koko@test.com", "John", "Doe", "California");
+        User user2 = new User("candy666", "candy123","candy123", "candy@test.com", "Candice", "Smith", "Berlin");
+        User user3 = new User("BigFranklin", "franklin123","franklin123", "franklin@test.com", "Franklin", "Big", "Poznan");
 
         jpaUserRepository.save(user);
         jpaUserRepository.save(user2);
         jpaUserRepository.save(user3);
+
+        Role admin = new Role("admin");
+        Role diaryUser = new Role("user");
+
+        jpaRoleRepository.save(admin);
+        jpaRoleRepository.save(diaryUser);
 
         String description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " +
                 "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in " +
