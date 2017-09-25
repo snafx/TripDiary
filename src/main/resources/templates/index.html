@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <title>TRIP DIARY - HOME</title>
     <object th:include="/fragments/head :: head" th:remove="tag"/>
@@ -30,7 +31,12 @@
                         <li><a class="newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add New
                             Place</a></li>
                         <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
-                        <li><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                        <li sec:authorize="!isAuthenticated()"><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                        <li sec:authorize="isAuthenticated()">
+                            <a class="loginbutton" href="login.html" th:href="@{/logout}">Logout:
+                                <span sec:authentication="principal.username"></span></a>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        </li>
                     </ul>
                 </nav>
                 <nav class="main-navigation menu-responsive hidden-md hidden-lg">
@@ -41,7 +47,12 @@
                         <li><a class="newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add New
                             Place</a></li>
                         <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
-                        <li><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                        <li sec:authorize="!isAuthenticated()"><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                        <li sec:authorize="isAuthenticated()">
+                            <a class="loginbutton" href="login.html" th:href="@{/logout}">Logout:
+                                <span sec:authentication="principal.username"></span></a>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        </li>
                     </ul>
                 </nav>
             </div>
