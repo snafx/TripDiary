@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<head>
+    <title>TRIP DIARY - SIGN UP</title>
+    <object th:include="/fragments/head :: head" th:remove="tag"/>
+</head>
+
+<body>
+
+<!--header section-->
+<header class="site-header container animated fadeInDown">
+    <div class="header-wrapper">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="site-branding">
+                    <a href="index.html" th:href="@{'/home'}"><img src="img/logo.png" th:src="@{/img/logo.png}"
+                                                                   alt="Brand Logo">
+                    </a>
+                </div>
+            </div>
+            <a href="#" class="toggle-nav hidden-md hidden-lg">
+                <i class="fa fa-bars"></i>
+            </a>
+            <div class="col-md-8">
+                <nav id="nav" class="main-navigation hidden-xs hidden-sm">
+                    <ul class="main-menu">
+                        <li><a class="homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
+                        <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips
+                            Diary</a></li>
+                        <li><a class="newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add New
+                            Place</a></li>
+                        <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
+                        <li sec:authorize="!isAuthenticated()"><a class="active loginbutton" href="login.html"
+                                                                  th:href="@{'/login'}">Login / Register</a></li>
+                        <li sec:authorize="isAuthenticated()">
+                            <a class="active loginbutton" href="login.html" th:href="@{/logout}">Logout:
+                                <span sec:authentication="principal.username"></span></a>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="main-navigation menu-responsive hidden-md hidden-lg">
+                    <ul class="main-menu">
+                        <li><a class="homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
+                        <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips
+                            Diary</a></li>
+                        <li><a class="newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add New
+                            Place</a></li>
+                        <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
+                        <li sec:authorize="!isAuthenticated()"><a class="active loginbutton" href="login.html"
+                                                                  th:href="@{'/login'}">Login / Register</a></li>
+                        <li sec:authorize="isAuthenticated()">
+                            <a class="active loginbutton" href="login.html" th:href="@{/logout}">Logout:
+                                <span sec:authentication="principal.username"></span></a>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-md-4"></div>
+            <div class="col-md-8">
+                <div class="nav-arrow">
+                    <img src="img/axe.png" th:src="@{/img/axe.png}" alt="axe">
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!--register account section-->
+<div id="menu-container">
+    <div class="homepage contact-section container">
+        <div class="contact-header text-center">
+            <h2 class="animated fadeInLeft">Register new account</h2>
+        </div>
+        <div class="contact-holder">
+            <div class="row">
+                <form action="/" th:object="${user}" method="post">
+                    <div class="col-md-1 col-sm-12"></div>
+                    <div class="col-md-5 col-sm-12">
+                        <div class="contact-form animated fadeInLeft">
+                            <h4>Required details:</h4>
+                            <div class="row">
+                                <fieldset class="col-md-12">
+                                    <input type="text" name="username" th:field="*{username}" placeholder="Username">
+                                    <p th:each="error : ${#fields.errors('username')}" th:text="${error}">Validation error</p>
+                                </fieldset>
+                                <fieldset class="col-md-12">
+                                    <input type="email" name="email" th:field="*{email}" placeholder="Your email">
+                                    <p th:each="error : ${#fields.errors('email')}" th:text="${error}">Validation error</p>
+                                </fieldset>
+                                <fieldset class="col-md-12">
+                                    <input type="password" name="password" th:field="*{password}" placeholder="Password">
+                                    <p th:each="error : ${#fields.errors('password')}" th:text="${error}">Validation error</p>
+                                </fieldset>
+                                <fieldset class="col-md-12">
+                                    <input type="password" name="passwordConfirm" th:field="*{passwordConfirm}" placeholder="Confirm password">
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col-sm-12">
+                        <div class="contact-form animated fadeInUp">
+                            <h4>Account details:</h4>
+                            <div class="row">
+                                <fieldset class="col-md-12">
+                                    <input type="text" name="firstName" th:field="*{firstName}" placeholder="First name">
+                                    <p th:each="error : ${#fields.errors('firstName')}" th:text="${error}">Validation error</p>
+                                </fieldset>
+                                <fieldset class="col-md-12">
+                                    <input type="text" name="lastName" th:field="*{lastName}" placeholder="Last name">
+                                    <p th:each="error : ${#fields.errors('lastName')}" th:text="${error}">Validation error</p>
+                                </fieldset>
+                                <fieldset class="col-md-12">
+                                    <input type="text" name="location" th:field="*{location}" placeholder="Location">
+                                    <p th:each="error : ${#fields.errors('location')}" th:text="${error}">Validation error</p>
+                                </fieldset>
+                                <fieldset class="col-md-12">
+                                    <button type="submit" class="message-button">Register New Account!</button>
+                                </fieldset>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-1 col-sm-12"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--footer section-->
+<div th:replace="fragments/footer :: footer">
+    <footer class="site-footer container text-center">
+        <div class="row">
+            <div class="col-md-12 copyright">
+                <p>Copyright &copy; 2017 <a href="#">snafx</a></p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<span class="border-top"></span>
+<span class="border-left"></span>
+<span class="border-right"></span>
+<span class="border-bottom"></span>
+<span class="shape-1"></span>
+<span class="shape-2"></span>
+
+</body>
+
+</html>

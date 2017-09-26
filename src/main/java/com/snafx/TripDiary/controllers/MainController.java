@@ -30,9 +30,11 @@ public class MainController {
         return "login";
     }
 
-    @GetMapping(value = "/register")
-    public String registerUser() {
-        return "register";
+
+
+    @GetMapping(value = "/contact")
+    public String contact() {
+        return "contact";
     }
 
     @RequestMapping(value = "/logout", method = RequestMethod.GET)

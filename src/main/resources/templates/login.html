@@ -4,6 +4,7 @@
 <head>
     <title>TRIP DIARY - LOGIN</title>
     <object th:include="/fragments/head :: head" th:remove="tag"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -14,45 +15,29 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="site-branding">
-                    <a href="index.html" th:href="@{'/home'}"><img src="img/logo.png" th:src="@{/img/logo.png}"
-                                                                   alt="Brand Logo">
-                    </a>
+                    <a href="index.html" th:href="@{'/home'}"><img src="img/logo.png" th:src="@{/img/logo.png}" alt="Brand Logo"></a>
                 </div>
             </div>
-            <a href="#" class="toggle-nav hidden-md hidden-lg">
-                <i class="fa fa-bars"></i>
-            </a>
+            <a href="#" class="toggle-nav hidden-md hidden-lg"><i class="fa fa-bars"></i></a>
             <div class="col-md-8">
                 <nav id="nav" class="main-navigation hidden-xs hidden-sm">
                     <ul class="main-menu">
                         <li><a class="homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
-                        <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips
-                            Diary</a></li>
-                        <li><a class="newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add New
-                            Place</a></li>
+                        <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips Diary</a></li>
+                        <li><a class="newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add New Place</a></li>
                         <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
-                        <li sec:authorize="!isAuthenticated()"><a class="active loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
-                        <li sec:authorize="isAuthenticated()">
-                            <a class="active loginbutton" href="login.html" th:href="@{/logout}">Logout:
-                                <span sec:authentication="principal.username"></span></a>
-                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        </li>
+                        <li sec:authorize="!isAuthenticated()"><a class="active loginbutton" href="login.html" th:href="@{'/login'}">Login / Register</a></li>
+                        <li sec:authorize="isAuthenticated()"><a class="active loginbutton" href="login.html" th:href="@{'/logout'}">Logout: <span sec:authentication="principal.username"></span></a><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></li>
                     </ul>
                 </nav>
                 <nav class="main-navigation menu-responsive hidden-md hidden-lg">
                     <ul class="main-menu">
                         <li><a class="homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
-                        <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips
-                            Diary</a></li>
-                        <li><a class="newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add New
-                            Place</a></li>
+                        <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips Diary</a></li>
+                        <li><a class="newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add New Place</a></li>
                         <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
                         <li sec:authorize="!isAuthenticated()"><a class="active loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
-                        <li sec:authorize="isAuthenticated()">
-                            <a class="active loginbutton" href="login.html" th:href="@{/logout}">Logout:
-                                <span sec:authentication="principal.username"></span></a>
-                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                        </li>
+                        <li sec:authorize="isAuthenticated()"><a class="active loginbutton" href="login.html" th:href="@{'/logout'}">Logout: <span sec:authentication="principal.username"></span></a><input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/></li>
                     </ul>
                 </nav>
             </div>
@@ -70,9 +55,9 @@
     <div class="homepage login-section container">
         <div class="contact-holder">
             <div class="row">
-                <div class="col-md-3 col-sm-12">
+                <div class="col-md-1 col-sm-12">
                 </div>
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-8 col-sm-12">
                     <form th:action="@{login}" method="post">
                         <div class="contact-form text-center">
                             <h4 class="animated fadeInDown">Login</h4>
@@ -101,7 +86,14 @@
                         </div>
                     </form>
                 </div>
-                <div class="col-md-3 col-sm-12"></div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="contact-form text-center">
+                        <h4 class="animated fadeInDown">New user?</h4>
+                        <fieldset class="col-md-12 animated fadeInUp">
+                            <a href="register.html" th:href="@{'/user/register'}" class="message-button">Go To Register</a>
+                        </fieldset>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
