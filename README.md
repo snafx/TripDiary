@@ -25,8 +25,11 @@ TripDiary - share you favourite places or epic &lt;TR/>&lt;I/>&lt;P/>
 <li>TODO - search</li>
 </ul>
 <h2>Screenshots</h2>
+
 ![](https://github.com/snafx/TripDiary/blob/master/src/main/resources/static/img/screenshots/trip1.png)
 ![](https://github.com/snafx/TripDiary/blob/master/src/main/resources/static/img/screenshots/trip2.png)
 ![](https://github.com/snafx/TripDiary/blob/master/src/main/resources/static/img/screenshots/trip3.png)
 ![](https://github.com/snafx/TripDiary/blob/master/src/main/resources/static/img/screenshots/trip4.png)
 ![](https://github.com/snafx/TripDiary/blob/master/src/main/resources/static/img/screenshots/trip5.png)
+
+
