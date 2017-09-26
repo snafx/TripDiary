@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <title>TRIP DIARY - TRAVEL DETAILS</title>
     <object th:include="/fragments/head :: head" th:remove="tag"/>
@@ -27,8 +28,12 @@
                         <li><a class="active tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips Diary</a></li>
                         <li><a class="newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add New Place</a></li>
                         <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
-                        <li><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
-                    </ul>
+                        <li sec:authorize="!isAuthenticated()"><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                        <li sec:authorize="isAuthenticated()">
+                            <a class="loginbutton" href="login.html" th:href="@{/logout}">Logout:
+                                <span sec:authentication="principal.username"></span></a>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        </li>                    </ul>
                 </nav>
                 <nav class="main-navigation menu-responsive hidden-md hidden-lg">
                     <ul class="main-menu">
@@ -36,8 +41,12 @@
                         <li><a class="active tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips Diary</a></li>
                         <li><a class="newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add New Place</a></li>
                         <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
-                        <li><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
-                    </ul>
+                        <li sec:authorize="!isAuthenticated()"><a class="loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                        <li sec:authorize="isAuthenticated()">
+                            <a class="loginbutton" href="login.html" th:href="@{/logout}">Logout:
+                                <span sec:authentication="principal.username"></span></a>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        </li>                    </ul>
                 </nav>
             </div>
             <div class="col-md-4"></div>
@@ -70,8 +79,6 @@
                 <div class="col-md-6">
                     <div class="offer-item trip-2 animated rotateInDownRight">
                         <figure>
-                            <span class="offer-left-top"><i></i></span>
-                            <span class="offer-right-top"><i></i></span>
                             <img src="" alt="Trip Photo 1" th:src="${trip.photo}">
                         </figure>
                         <div class="offer-content text-center">

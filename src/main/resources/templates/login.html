@@ -1,5 +1,6 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
     <title>TRIP DIARY - LOGIN</title>
     <object th:include="/fragments/head :: head" th:remove="tag"/>
@@ -13,7 +14,8 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="site-branding">
-                    <a href="index.html" th:href="@{'/home'}"><img src="img/logo.png" th:src="@{/img/logo.png}" alt="Brand Logo">
+                    <a href="index.html" th:href="@{'/home'}"><img src="img/logo.png" th:src="@{/img/logo.png}"
+                                                                   alt="Brand Logo">
                     </a>
                 </div>
             </div>
@@ -24,19 +26,33 @@
                 <nav id="nav" class="main-navigation hidden-xs hidden-sm">
                     <ul class="main-menu">
                         <li><a class="homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
-                        <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips Diary</a></li>
-                        <li><a class="newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add New Place</a></li>
+                        <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips
+                            Diary</a></li>
+                        <li><a class="newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add New
+                            Place</a></li>
                         <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
-                        <li><a class="active loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                        <li sec:authorize="!isAuthenticated()"><a class="active loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                        <li sec:authorize="isAuthenticated()">
+                            <a class="active loginbutton" href="login.html" th:href="@{/logout}">Logout:
+                                <span sec:authentication="principal.username"></span></a>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        </li>
                     </ul>
                 </nav>
                 <nav class="main-navigation menu-responsive hidden-md hidden-lg">
                     <ul class="main-menu">
                         <li><a class="homebutton" href="index.html" th:href="@{'/home'}">Home</a></li>
-                        <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips Diary</a></li>
-                        <li><a class="newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add New Place</a></li>
+                        <li><a class="tripsbutton" href="trips-diary.html" th:href="@{'/tripsDiaryList'}">Trips
+                            Diary</a></li>
+                        <li><a class="newplacebutton" href="add-new-trip.html" th:href="@{'/add-new-trip'}">Add New
+                            Place</a></li>
                         <li><a class="contactbutton" href="contact.html" th:href="@{'/contact'}">Contact</a></li>
-                        <li><a class="active loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                        <li sec:authorize="!isAuthenticated()"><a class="active loginbutton" href="login.html" th:href="@{'/login'}">Login</a></li>
+                        <li sec:authorize="isAuthenticated()">
+                            <a class="active loginbutton" href="login.html" th:href="@{/logout}">Logout:
+                                <span sec:authentication="principal.username"></span></a>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                        </li>
                     </ul>
                 </nav>
             </div>
@@ -50,51 +66,64 @@
     </div>
 </header>
 
-    <div id="menu-container">
-        <div class="homepage login-section container">
-            <div class="contact-holder">
-                <div class="row">
-                    <div class="col-md-3 col-sm-12">
-                    </div>
-                    <div class="col-md-6 col-sm-12">
+<div id="menu-container">
+    <div class="homepage login-section container">
+        <div class="contact-holder">
+            <div class="row">
+                <div class="col-md-3 col-sm-12">
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <form th:action="@{login}" method="post">
                         <div class="contact-form text-center">
                             <h4 class="animated fadeInDown">Login</h4>
+                            <div th:if="${param.error}">
+                                <div class="alert alert-danger">
+                                    Invalid username or password. Please try again.
+                                </div>
+                            </div>
+                            <div th:if="${param.logout}">
+                                <div class="alert alert-info">
+                                You have been logged out.
+                                </div>
+                            </div>
                             <div class="row">
                                 <fieldset class="col-md-6 animated fadeInLeft">
-                                    <input type="email" name="email" placeholder="email">
+                                    <input type="text" name="username" placeholder="username" required="true">
                                 </fieldset>
                                 <fieldset class="col-md-6 animated fadeInRight">
-                                    <input type="text" name="password" placeholder="password">
+                                    <input type="password" name="password" placeholder="password" required="true">
                                 </fieldset>
                                 <fieldset class="col-md-12 animated fadeInUp">
-                                    <a href="#" class="message-button">LOGIN</a>
+                                    <button type="submit" class="message-button">LOGIN</button>
                                 </fieldset>
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3 col-sm-12"></div>
+                    </form>
                 </div>
+                <div class="col-md-3 col-sm-12"></div>
             </div>
         </div>
     </div>
+</div>
 
-    <!--footer section-->
-    <div th:replace="fragments/footer :: footer">
-        <footer class="site-footer container text-center">
-            <div class="row">
-                <div class="col-md-12 copyright">
-                    <p>Copyright &copy; 2017 <a href="#">snafx</a></p>
-                </div>
+<!--footer section-->
+<div th:replace="fragments/footer :: footer">
+    <footer class="site-footer container text-center">
+        <div class="row">
+            <div class="col-md-12 copyright">
+                <p>Copyright &copy; 2017 <a href="#">snafx</a></p>
             </div>
-        </footer>
-    </div>
+        </div>
+    </footer>
+</div>
 
-    <span class="border-top"></span>
-    <span class="border-left"></span>
-    <span class="border-right"></span>
-    <span class="border-bottom"></span>
-    <span class="shape-1"></span>
-    <span class="shape-2"></span>
+<span class="border-top"></span>
+<span class="border-left"></span>
+<span class="border-right"></span>
+<span class="border-bottom"></span>
+<span class="shape-1"></span>
+<span class="shape-2"></span>
 
 </body>
 
